@@ -82,7 +82,7 @@ body {
     background: var(--panel);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: 7px;
+    border-radius: 17px;
     font-size: 14px;
     outline: none;
     cursor: pointer;
@@ -90,6 +90,7 @@ body {
 
 .language-box select:focus {
     border-color: var(--accent);
+    border-radius: 30px;
 }
 
 .language-box option {
@@ -121,7 +122,8 @@ body {
     padding: 16px;
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 7px;
+    border-radius: 25px;
+
 }
 
 .text-panel textarea {
@@ -137,6 +139,7 @@ body {
     /* font-size: 16px; */
     font-size: 23px;
     line-height: 1.2;
+    /* box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px rgb(175, 156, 156); */
 }
 
 .text-panel textarea::placeholder {

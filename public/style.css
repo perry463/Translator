@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --background: #111111; */
+    --background: #514a92;
+    --panel: #202020;
+    --border: #33333d;
+    --text: #ffffff;
+    --muted: #a0a0a0;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 24px;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+/* Main page container */
+
+.translator {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* Page heading */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.header h1 span {
+    color: var(--accent);
+}
+
+.header p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Language selectors */
+
+.language-selectors {
+    display: grid;
+    grid-template-columns: 1fr 35px 1fr;
+    align-items: end;
+    gap: 18px;
+    margin-bottom: 12px;
+}
+
+.language-box {
+    min-width: 0;
+}
+
+.language-box label,
+.text-panel label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #dddddd;
+}
+
+.language-box select {
+    width: 100%;
+    padding: 12px;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.language-box select:focus {
+    border-color: var(--accent);
+}
+
+.language-box option {
+    background: var(--panel);
+    color: var(--text);
+}
+
+.swap-icon {
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--muted);
+    font-size: 24px;
+}
+
+/* Input and translation panels */
+
+.translator-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.text-panel,
+.result-panel {
+    min-width: 0;
+    min-height: 260px;
+    padding: 16px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+.text-panel textarea {
+    display: block;
+    width: 100%;
+    min-height: 205px;
+    resize: none;
+    background: transparent;
+    color: var(--text);
+    border: none;
+    outline: none;
+    font-family: inherit;
+    /* font-size: 16px; */
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.text-panel textarea::placeholder {
+    color: #858585;
+}
+
+/* Translation result */
+
+.result-heading {
+    margin-bottom: 15px;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.result-text {
+    color: var(--text);
+    font-size: 23px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* Translate button */
+
+.translate-btn {
+    display: block;
+    margin: 22px auto 0;
+    padding: 13px 30px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.translate-btn:hover {
+    background: var(--accent-hover);
+}
+
+.translate-btn span {
+    margin-left: 8px;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Smaller screens */
+
+@media (max-width: 650px) {
+    body {
+        padding: 28px 14px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .language-selectors {
+        grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
+        gap: 7px;
+    }
+
+    .language-box select {
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    .translator-panels {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .text-panel,
+    .result-panel {
+        min-height: 220px;
+    }
+
+    .text-panel textarea {
+        min-height: 160px;
+    }
+
+    .swap-icon {
+        font-size: 21px;
+    }
+}
+/* Make the layout fit different screen sizes */
+
+.translator {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* Prevent form elements from overflowing */
+
+.language-box,
+.text-panel,
+.result-panel {
+    min-width: 0;
+}
+
+.text-panel textarea {
+    max-width: 100%;
+}
+
+/* Tablets and smaller laptops */
+
+@media (max-width: 800px) {
+    body {
+        padding: 30px 20px;
+    }
+
+    .translator {
+        max-width: 700px;
+    }
+
+    .translator-panels {
+        gap: 12px;
+    }
+
+    .text-panel,
+    .result-panel {
+        padding: 14px;
+    }
+}
+
+/* Phones */
+
+@media (max-width: 600px) {
+    body {
+        padding: 24px 14px;
+    }
+
+    .header {
+        margin-bottom: 26px;
+    }
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    /* Keep both language selectors on one row */
+
+    .language-selectors {
+        grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
+        gap: 7px;
+    }
+
+    .language-box label {
+        font-size: 12px;
+    }
+
+    .language-box select {
+        width: 100%;
+        padding: 11px 5px;
+        font-size: 12px;
+    }
+
+    .swap-icon {
+        font-size: 20px;
+    }
+
+    /* Stack input and result vertically */
+
+    .translator-panels {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .text-panel,
+    .result-panel {
+        min-height: 200px;
+        padding: 14px;
+    }
+
+    .text-panel textarea {
+        min-height: 150px;
+        font-size: 15px;
+    }
+
+    .result-text {
+        font-size: 15px;
+    }
+
+    .translate-btn {
+        width: 100%;
+        padding: 14px;
+    }
+
+    footer {
+        margin-top: 24px;
+    }
+}
+
+/* Very small phones */
+
+@media (max-width: 360px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .language-selectors {
+        gap: 4px;
+        grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr);
+    }
+
+    .language-box label {
+        font-size: 11px;
+    }
+
+    .language-box select {
+        padding: 10px 3px;
+        font-size: 11px;
+    }
+
+    .text-panel,
+    .result-panel {
+        padding: 12px;
+    }
+}
+
+/* Respect users who prefer less animation */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}

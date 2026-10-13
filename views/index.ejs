@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IMD Translate | Language Translator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <main class="translator">
+
+        <header class="header">
+            <h1>IMD Translate<span>.</span></h1>
+            <p>A language translation web app.</p>
+        </header>
+
+        <form action="/translate" method="POST">
+
+            <!-- Language selectors -->
+            <div class="language-selectors">
+
+                <div class="language-box">
+                    <label for="source">Translate from</label>
+
+                    <select name="source" id="source">
+                    <option value="en" <%= typeof source !== 'undefined' && source === 'en' ? 'selected' : '' %>>
+                     English</option>
+                    <option value="it" <%= typeof source !== 'undefined' && source === 'it' ? 'selected' : '' %>>
+                        Italian</option>
+                    <option value="fr" <%= typeof source !== 'undefined' && source === 'fr' ? 'selected' : '' %>>
+                        French</option>
+                    <option value="es" <%= typeof source !== 'undefined' && source === 'es' ? 'selected' : '' %>>
+                        Spanish</option>
+                    <option value="de" <%= typeof source !== 'undefined' && source === 'de' ? 'selected' : '' %>>
+                         German</option>
+                    <option value="pt" <%= typeof source !== 'undefined' && source === 'pt' ? 'selected' : '' %>>
+                        Portuguese</option>
+                    <option value="ar" <%= typeof source !== 'undefined' && source === 'ar' ? 'selected' : '' %>>
+                        Arabic</option>
+                    <option value="zh-CN" <%= typeof source !== 'undefined' && source === 'zh-CN' ? 'selected' : '' %>>
+                        Chinese</option>
+                    <option value="ja" <%= typeof source !== 'undefined' && source === 'ja' ? 'selected' : '' %>>
+                        Japanese</option>
+                    <option value="ko" <%= typeof source !== 'undefined' && source === 'ko' ? 'selected' : '' %>>
+                        Korean</option>
+                    <option value="hi" <%= typeof source !== 'undefined' && source === 'hi' ? 'selected' : '' %>>
+                        Hindi</option>
+                    <option value="yo" <%= typeof source !== 'undefined' && source === 'yo' ? 'selected' : '' %>>
+                            Yoruba</option>
+                    <option value="ig" <%= typeof source !== 'undefined' && source === 'ig' ? 'selected' : '' %>>
+                            Igbo</option>
+                    <option value="ha" <%= typeof source !== 'undefined' && source === 'ha' ? 'selected' : '' %>>Hausa</option>
+                    <option value="ru" <%= typeof source !== 'undefined' && source === 'ru' ? 'selected' : '' %>>Russian</option>
+                    <option value="nl" <%= typeof source !== 'undefined' && source === 'nl' ? 'selected' : '' %>>Dutch</option>
+                    <option value="tr" <%= typeof source !== 'undefined' && source === 'tr' ? 'selected' : '' %>>Turkish</option>
+                    <option value="sw" <%= typeof source !== 'undefined' && source === 'sw' ? 'selected' : '' %>>Swahili</option>
+                    </select>
+                </div>
+
+                <div class="swap-icon" aria-hidden="true">⇄</div>
+
+                <div class="language-box">
+                    <label for="target">Translate into</label>
+
+                    <select name="target" id="target">
+                        <option value="it" <%= target === 'it' ? 'selected' : '' %>>Italian</option>
+                        <option value="en" <%= target === 'en' ? 'selected' : '' %>>English</option>
+                        <option value="fr" <%= target === 'fr' ? 'selected' : '' %>>French</option>
+                        <option value="es" <%= target === 'es' ? 'selected' : '' %>>Spanish</option>
+                        <option value="de" <%= target === 'de' ? 'selected' : '' %>>German</option>
+                        <option value="pt" <%= target === 'pt' ? 'selected' : '' %>>Portuguese</option>
+                        <option value="ar" <%= target === 'ar' ? 'selected' : '' %>>Arabic</option>
+                        <option value="zh-CN" <%= target === 'zh-CN' ? 'selected' : '' %>>Chinese</option>
+                        <option value="ja" <%= target === 'ja' ? 'selected' : '' %>>Japanese</option>
+                        <option value="ko" <%= target === 'ko' ? 'selected' : '' %>>Korean</option>
+                        <option value="hi" <%= target === 'hi' ? 'selected' : '' %>>Hindi</option>
+                        <option value="yo" <%= target === 'yo' ? 'selected' : '' %>>Yoruba</option>
+                        <option value="ig" <%= target === 'ig' ? 'selected' : '' %>>Igbo</option>
+                        <option value="ha" <%= target === 'ha' ? 'selected' : '' %>>Hausa</option>
+                        <option value="ru" <%= target === 'ru' ? 'selected' : '' %>>Russian</option>
+                        <option value="nl" <%= target === 'nl' ? 'selected' : '' %>>Dutch</option>
+                        <option value="tr" <%= target === 'tr' ? 'selected' : '' %>>Turkish</option>
+                        <option value="sw" <%= target === 'sw' ? 'selected' : '' %>>Swahili</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Input and result panels -->
+            <div class="translator-panels">
+
+                <div class="text-panel">
+                    <label for="text">Your text</label>
+
+                    <textarea
+                        name="q"
+                        id="text"
+                        placeholder="Type something you want to translate..."
+                        rows="8"
+                        required
+                    ><%= typeof originalText !== 'undefined' ? originalText : '' %></textarea>
+                </div>
+
+                <div class="result-panel">
+                    <div class="result-heading">
+                        <span>Your translation</span>
+                    </div>
+
+                    <div class="result-text" aria-live="polite"><%= typeof data !== 'undefined' ? data : 'Your translation will appear here...' %></div>
+                </div>
+
+            </div>
+
+            <button type="submit" class="translate-btn">
+                Translate <span>→</span>
+            </button>
+
+        </form>
+
+        <footer>
+            Designed & developed by me. 🌍
+        </footer>
+
+    </main>
+
+</body>
+</html>
